@@ -1,0 +1,28 @@
+container:
+  image: node:latest
+
+test_task:
+  name: Tests
+  node_modules_cache:
+    folder: node_modules
+    ingerprint_script: cat package-lock.json
+    populate_script: npm ci
+  install_cromium: sudo apt-get install chromium-browser
+  test_script: npm test
+
+deploy_task:
+  only_if: $CIRRUS_BRANCH == 'main'
+  depends_on: Tests
+  node_modules_cache:
+    folder: node_modules
+    ingerprint_script: cat package-lock.json
+    populate_script: npm ci
+  env:
+    GITHUB_TOKEN: ENCRYPTED[!12ce39a51fe1e38e17f3a4caf0abe1c26ba73f7f2485e4e3ae7ceb72fc06d5082914a267999edaf442ff14fccffcf341!]
+    USER: korneef
+    REPO: ra-42_forms-hex2rgb
+  deploy_script: 
+    - git config --global user.name "Cirrus-CI"
+    - git config --global user.email "ci@cirruslabs.org"
+    - git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$USER/$REPO
+    - npm run build && npx push-dir --dir=build --branch=gh-pages --force --verbose
