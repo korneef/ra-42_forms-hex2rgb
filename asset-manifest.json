@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ra-42_forms-hex2rgb/static/css/main.4ab8d8d2.css",
+    "main.js": "/ra-42_forms-hex2rgb/static/js/main.dd236c79.js",
+    "static/js/787.130afaa7.chunk.js": "/ra-42_forms-hex2rgb/static/js/787.130afaa7.chunk.js",
+    "index.html": "/ra-42_forms-hex2rgb/index.html",
+    "main.4ab8d8d2.css.map": "/ra-42_forms-hex2rgb/static/css/main.4ab8d8d2.css.map",
+    "main.dd236c79.js.map": "/ra-42_forms-hex2rgb/static/js/main.dd236c79.js.map",
+    "787.130afaa7.chunk.js.map": "/ra-42_forms-hex2rgb/static/js/787.130afaa7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ab8d8d2.css",
+    "static/js/main.dd236c79.js"
+  ]
+}
